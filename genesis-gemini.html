@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis Lille | L'Élégance Athlétique</title>
+    
+    <!-- Typographie : Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        genesis: {
+                            black: '#000000',
+                            dark: '#111111',
+                            grey: '#f7f7f7',
+                            white: '#ffffff',
+                        }
+                    },
+                    letterSpacing: {
+                        'lux': '0.15em',
+                        'lux-wide': '0.2em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-200 { animation-delay: 0.2s; }
+
+        /* Champs de formulaire simplifiés et compacts pour mobile */
+        .input-luxe {
+            width: 100%;
+            border: 1px solid #d1d5db;
+            padding: 10px 12px;
+            font-size: 13px;
+            background-color: transparent;
+            border-radius: 0;
+            transition: border-color 0.3s ease;
+            color: #000;
+        }
+        @media (min-width: 768px) {
+            .input-luxe {
+                padding: 16px;
+                font-size: 14px;
+            }
+        }
+        .input-luxe:focus {
+            outline: none;
+            border-color: #000;
+            box-shadow: 0 0 0 1px #000;
+        }
+        .input-luxe::placeholder { color: #888; font-weight: 300; }
+        
+        select.input-luxe {
+            appearance: none;
+            cursor: pointer;
+        }
+
+        /* Checkbox */
+        input[type="checkbox"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+            margin-top: 2px;
+        }
+        input[type="checkbox"]::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            transform: scale(0);
+            background-color: #000;
+            transition: 120ms transform ease-in-out;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+        input[type="checkbox"]:checked { border-color: #000; }
+        input[type="checkbox"]:checked::before { transform: scale(1); }
+
+        .img-hover-zoom { overflow: hidden; }
+        .img-hover-zoom img { transition: transform 0.7s ease; }
+        .img-hover-zoom:hover img { transform: scale(1.05); }
+    </style>
+</head>
+<body class="pb-[60px] md:pb-0">
+
+    <!-- HEADER / NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 bg-genesis-black text-white flex flex-col transition-all shadow-md">
+        
+        <!-- Top Bar : Adresse & Horaires (Visible sur Desktop) -->
+        <div class="hidden md:flex justify-between items-center px-6 md:px-12 py-2 bg-[#0a0a0a] text-[11px] font-light tracking-widest text-gray-400 border-b border-white/10">
+    <div class="flex gap-8">
+        <a href="https://www.google.com/maps/search/?api=1&query=Boulevard+de+l+Ouest+59650+Villeneuve+d+Ascq" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="hover:text-white transition flex items-center">
+            <i class="fas fa-map-marker-alt mr-2"></i>
+            <span>Boulevard de l'Ouest, 59650 Villeneuve d'Ascq</span>
+        </a>
+
+        <span><i class="far fa-clock mr-2"></i>Lun-Ven : 9h-20h | Sam : 9h-17h</span>
+    </div>
+    
+    <div>
+        <a href="tel:+33320000000" class="hover:text-white transition">
+            <i class="fas fa-phone mr-2"></i>03 20 00 00 00
+        </a>
+    </div>
+</div>
+
+        <!-- Main Navbar : Logos Genesis & GGP -->
+        <div class="h-[90px] md:h-[120px] flex items-center justify-between px-4 md:px-12">
+            <nav class="flex items-center justify-between w-full"> <div class="flex items-center">
+        <a href="#" class="flex items-center hover:opacity-100 transition-opacity">
+            <img src="https://www.genesis.com/content/dam/genesis-p2/ca/assets/utility/sns/genesis-logo-social-1200x630-en.jpg" alt="Logo Genesis" class="h-16 md:h-24 object-contain mix-blend-screen">
+            
+            <span class="text-white text-[11px] md:text-[13px] font-light tracking-lux-wide uppercase opacity-100 border-l border-white/20 pl-3 md:pl-5 mt-1">
+                Genesis Lille
+            </span>
+        </a>
+
+        <div class="w-[1px] h-6 md:h-8 bg-white/20 ml-1 md:ml-3"></div>
+        
+        <a href="https://www.ggpauto.fr" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 transition-opacity">
+            <img src="https://cdnwp.dealerk.com/8d03464a/uploads/sites/82/2025/01/ggp-logotype-1couleur-blanc-1.png" alt="Logo GGP Auto" class="h-8 md:h-12 object-contain ml-1 md:ml-3">
+        </a>
+    </div>
+
+    <div class="hidden md:flex items-center">
+        <a href="#rendez-vous" class="border border-white/60 text-white px-6 py-3 text-[11px] font-semibold tracking-lux-wide uppercase hover:bg-white hover:text-black transition duration-300">
+            Réserver mon essai
+        </a>
+    </div>
+</nav>
+
+            <!-- Icônes Mobile (Visibles uniquement sur Mobile) -->
+             <div class="flex items-center space-x-5 text-white md:hidden">
+        <a href="tel:+33320000000" class="opacity-100 hover:opacity-100 transition"><i class="fas fa-phone text-sm"></i></a>
+        <a href="#location" class="opacity-100 hover:opacity-100 transition"><i class="fas fa-map-marker-alt text-base"></i></a>
+    </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1 : HERO -->
+    <header class="relative w-full h-[65vh] min-h-[420px] md:h-[80vh] md:min-h-[550px] flex flex-col items-center justify-center pt-16 md:pt-20">
+        <div class="absolute inset-0 z-0 bg-genesis-dark">
+            <img src="https://s7ap1.scene7.com/is/image/hyundaimc/04_GV70_ev_Exterior_Front_Quarter_16x9:S-3_4?ts=1770281936291&dpr=on,2.625" alt="Genesis de face" class="w-full h-full object-cover object-center opacity-90" />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
+        </div>
+
+        <div class="relative z-10 text-center w-full px-4 fade-in-up -mt-8 md:-mt-12">
+            <h1 class="text-4xl md:text-6xl lg:text-[75px] font-light text-white leading-[1.1] tracking-lux-wide uppercase drop-shadow-2xl">
+                Bienvenue à<br>
+                <span class="font-normal">Genesis Lille</span>
+            </h1>
+        </div>
+        
+       <div class="relative z-10 w-full px-4 pb-6 sm:pb-8 md:pb-12 fade-in-up delay-300 mt-[60px]">
+    <div class="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 max-w-xs sm:max-w-lg md:max-w-xl mx-auto">
+        <a href="#rendez-vous"
+           class="flex-1 bg-black/80 backdrop-blur-sm text-white border border-white/30 py-3.5 md:py-5 text-center text-[12px] md:text-[13px] font-semibold tracking-[0.18em] uppercase hover:bg-black transition duration-300">
+            Réserver mon essai
+        </a>
+        <a href="#gamme"
+           class="flex-1 bg-transparent text-white border border-white/70 py-3.5 md:py-5 text-center text-[12px] md:text-[13px] font-semibold tracking-[0.18em] uppercase hover:bg-white hover:text-black transition duration-300 backdrop-blur-sm">
+            Découvrir la gamme
+        </a>
+    </div>
+</div>a
+    </header>
+
+    <!-- SECTION 2 : LA GAMME -->
+    <section id="gamme" class="py-24 bg-genesis-grey">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div class="text-center mb-16">
+            <h2 class="text-2xl font-light tracking-lux-wide uppercase text-black mb-4">La Gamme Genesis</h2>
+            <div class="w-20 h-[1px] bg-black mx-auto"></div>
+        </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                <!-- Modèle 1 : G70 -->
+                <div class="group">
+                    <div class="img-hover-zoom aspect-[4/3] bg-gray-200 mb-6 cursor-pointer">
+                        <img src="https://www.genesis.com/content/dam/genesis-p2/ca/assets/models/g70/my24-ca/highlights/genesis-g70-highlights-pullquote.small.jpg" alt="Genesis G70" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="text-xl font-medium tracking-wide mb-2">Genesis G70</h3>
+                    <p class="text-sm font-light text-gray-500 mb-6">Berline athlétique.</p>
+                    <a href="#rendez-vous" onclick="preselectModel('g70')" class="text-xs font-semibold tracking-lux uppercase border-b border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition inline-block">Essayer ce modèle</a>
+                </div>
+                <!-- Modèle 2 : G80 -->
+                <div class="group">
+                    <div class="img-hover-zoom aspect-[4/3] bg-gray-200 mb-6 cursor-pointer">
+                        <img src="https://m.atcdn.co.uk/vms/media/51cb6d4efcf245e0b5c0f1c7f111b185.jpg" alt="Genesis G80" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="text-xl font-medium tracking-wide mb-2">Genesis G80</h3>
+                    <p class="text-sm font-light text-gray-500 mb-6">L'élégance intemporelle.</p>
+                    <a href="#rendez-vous" onclick="preselectModel('g80')" class="text-xs font-semibold tracking-lux uppercase border-b border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition inline-block">Essayer ce modèle</a>
+                </div>
+                <!-- Modèle 3 : G90 -->
+                <div class="group">
+                    <div class="img-hover-zoom aspect-[4/3] bg-gray-200 mb-6 cursor-pointer">
+                        <img src="https://www.blablastore.fr/_i/131565/17683/3712/84/2020-genesis-g90-mmp-1-1638385923.jpeg" alt="Genesis G90" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="text-xl font-medium tracking-wide mb-2">Genesis G90</h3>
+                    <p class="text-sm font-light text-gray-500 mb-6">Le summum du luxe.</p>
+                    <a href="#rendez-vous" onclick="preselectModel('g90')" class="text-xs font-semibold tracking-lux uppercase border-b border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition inline-block">Essayer ce modèle</a>
+                </div>
+                <!-- Modèle 4 : GV70 -->
+                <div class="group">
+                    <div class="img-hover-zoom aspect-[4/3] bg-gray-200 mb-6 cursor-pointer">
+                        <img src="https://cdn.automobile-propre.com/uploads/2023/05/genesis-gv-70-6.jpg" alt="Genesis GV70" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="text-xl font-medium tracking-wide mb-2">Genesis GV70</h3>
+                    <p class="text-sm font-light text-gray-500 mb-6">Le SUV urbain de luxe.</p>
+                    <a href="#rendez-vous" onclick="preselectModel('gv70')" class="text-xs font-semibold tracking-lux uppercase border-b border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition inline-block">Essayer ce modèle</a>
+                </div>
+                <!-- Modèle 5 : GV80 -->
+                <div class="group">
+                    <div class="img-hover-zoom aspect-[4/3] bg-gray-200 mb-6 cursor-pointer">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/2025-genesis-gv80-3p5t-awd-prestige-285-66ccc287a3e0c.jpg?crop=0.646xw:0.547xh;0.285xw,0.376xh&resize=1200:*" alt="Genesis GV80" class="w-full h-full object-cover object-center">
+                    </div>
+                    <h3 class="text-xl font-medium tracking-wide mb-2">Genesis GV80</h3>
+                    <p class="text-sm font-light text-gray-500 mb-6">Majestueux sans compromis.</p>
+                    <a href="#rendez-vous" onclick="preselectModel('gv80')" class="text-xs font-semibold tracking-lux uppercase border-b border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition inline-block">Essayer ce modèle</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 : FORMULAIRE SIMPLIFIÉ -->
+    <section id="rendez-vous" class="w-full bg-white flex flex-col lg:flex-row border-t border-gray-200">
+        
+        <div class="hidden lg:flex lg:w-1/2 bg-genesis-black text-white p-24 flex-col justify-center relative">
+            <div class="absolute inset-0 opacity-20">
+                <img src="https://s7ap1.scene7.com/is/image/hyundaimc/04_GV70_ev_Exterior_Front_Quarter_16x9:S-3_4?ts=1770281936291&dpr=on,2.625" class="w-full h-full object-cover grayscale mix-blend-overlay" alt="Fond Genesis">
+            </div>
+            <div class="relative z-10 max-w-md">
+                <h2 class="text-4xl font-light tracking-lux uppercase leading-tight mb-8">Votre<br>Expérience<br>Commence Ici.</h2>
+                <p class="font-light leading-relaxed opacity-80 mb-12"> Remplissez le formulaire pour soumettre votre demande d'essai. Nous vous recontacterons par mail ou téléphone pour convenir d'une date, sous réserve de disponibilité du véhicule choisi.</p>
+                <div class="w-[1px] h-20 bg-white/30"></div>
+            </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 py-8 px-4 md:py-20 md:px-24 flex flex-col justify-center">
+            <div class="max-w-xl w-full mx-auto lg:mx-0">
+                <h2 class="text-black font-semibold text-[18px] md:text-[22px] mb-4 md:mb-8">Réserver un essai :</h2>
+                
+                <form id="leadForm" class="space-y-3 md:space-y-4" onsubmit="submitForm(event)">
+                    
+                    <div class="grid grid-cols-2 gap-2 md:gap-4">
+                        <input type="text" placeholder="Prénom *" required class="input-luxe">
+                        <input type="text" placeholder="Nom *" required class="input-luxe">
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2 md:gap-4">
+                        <input type="email" placeholder="Email *" required class="input-luxe">
+                        <input type="tel" placeholder="Téléphone *" required class="input-luxe">
+                    </div>
+                    <p class="text-[10px] md:text-[11px] text-gray-500 font-light mt-0 mb-1 md:mb-2">Votre numéro ne sera utilisé qu'à des fins liées à votre demande.</p>
+
+                    <!-- Menu déroulant modèle -->
+                    <div class="relative">
+                        <select id="modele-select" class="input-luxe text-gray-700" required>
+                            <option value="" disabled selected>Modèle désiré *</option>
+                            <option value="g70">Genesis G70</option>
+                            <option value="g80">Genesis G80</option>
+                            <option value="g90">Genesis G90</option>
+                            <option value="gv70">Genesis GV70</option>
+                            <option value="gv80">Genesis GV80</option>
+                        </select>
+                        <i class="fas fa-chevron-down absolute right-4 top-[14px] md:top-[18px] text-gray-400 pointer-events-none text-sm"></i>
+                    </div>
+
+                    <div class="space-y-2 pt-1 pb-1 md:pt-2 md:pb-2">
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" required>
+                            <span class="text-[11px] md:text-[13px] text-gray-600 font-light pt-0.5 leading-tight">J'ai lu et j'accepte <a href="#" class="underline text-black">la politique de confidentialité</a></span>
+                        </label>
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox">
+                            <span class="text-[11px] md:text-[13px] text-gray-600 font-light pt-0.5 leading-tight">J'accepte d'être contacté à des fins marketing (Facultatif)</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-[#333] hover:bg-black text-white py-[14px] md:py-[18px] text-[11px] md:text-xs font-bold tracking-lux-wide uppercase transition duration-300">
+                        Réserver mon essai
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4 : LOCALISATION -->
+    <section id="location" class="w-full flex flex-col lg:flex-row lg:h-[500px]">
+        
+        <!-- Bloc Gauche : Carte Google Maps Interactive -->
+        <div class="w-full lg:w-1/2 h-[350px] lg:h-full relative bg-gray-200 overflow-hidden">
+            <iframe 
+                src="https://maps.google.com/maps?q=Boulevard+de+l'Ouest,59650,Villeneuve+d'Ascq&t=m&z=15&output=embed&iwloc=near" 
+                class="w-full h-full border-0" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <!-- Bloc Droit : Informations -->
+        <div class="w-full lg:w-1/2 bg-black text-white py-16 px-6 lg:p-20 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+            <div class="max-w-md w-full">
+                <h2 class="text-2xl font-light tracking-lux-wide uppercase mb-10">Où nous trouver ?</h2>
+                
+                <div class="space-y-6 text-[15px] font-light mb-10">
+                    <div class="flex flex-col lg:flex-row items-center lg:items-start gap-4">
+                        <i class="fas fa-map-marker-alt text-xl lg:mt-1 opacity-70"></i>
+                        <p class="leading-relaxed opacity-90">Boulevard de l'Ouest, 59650,<br> Villeneuve d'Ascq</p>
+                    </div>
+                    <div class="flex flex-col lg:flex-row items-center lg:items-start gap-4">
+                        <i class="far fa-clock text-xl lg:mt-1 opacity-70"></i>
+                        <div class="leading-loose opacity-90">
+                            <p>Lundi au Vendredi : 9h00 - 20h00</p>
+                            <p>Samedi : 9h00 - 17h00</p>
+                            <p>Dimanche : Fermé</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://maps.google.com/?q=Boulevard+de+l'Ouest,59650,Villeneuve+d'Ascq" target="_blank" class="block w-full max-w-[320px] mx-auto lg:mx-0 bg-white text-black py-[16px] text-center text-xs font-semibold tracking-lux-wide uppercase hover:bg-gray-200 transition">
+                    Obtenir l'itinéraire
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER LÉGAL MINIMALISTE -->
+    <footer class="bg-[#0a0a0a] text-gray-500 py-12 border-t border-white/10 text-center text-[10px] md:text-[11px] font-light tracking-widest uppercase pb-[80px] md:pb-12">
+        
+        <div class="flex flex-col items-center justify-center mb-10">
+            <img src="https://www.genesis.com/content/dam/genesis-p2/ca/assets/utility/sns/genesis-logo-social-1200x630-en.jpg" alt="Logo Genesis" class="h-16 md:h-24 object-contain mix-blend-screen mb-2 opacity-90">
+            <span class="text-white text-[12px] md:text-sm tracking-lux-wide uppercase font-medium">Genesis Lille</span>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-6">
+            <a href="#" class="hover:text-white transition">Mentions légales</a>
+            <span class="hidden md:inline text-gray-700">|</span>
+            <a href="#" class="hover:text-white transition">Politique de confidentialité</a>
+            <span class="hidden md:inline text-gray-700">|</span>
+            <a href="#" class="hover:text-white transition">Gestion des cookies</a>
+        </div>
+        <p class="opacity-60">&copy; 2026 Genesis Lille - GGP Auto. Tous droits réservés.</p>
+    </footer>
+
+    <!-- STICKY FOOTER MOBILE -->
+    <div class="fixed bottom-0 left-0 w-full flex h-[56px] z-50 md:hidden bg-white shadow-[0_-2px_12px_rgba(0,0,0,0.15)]">
+    <a href="tel:+33320000000"
+       class="w-1/2 flex items-center justify-center gap-2 text-[12px] font-semibold text-black border-r border-gray-200 hover:bg-gray-50 tracking-widest uppercase">
+        <i class="fas fa-phone-alt text-[11px] fa-flip-horizontal"></i> 
+        Appeler
+        </a>
+        <a href="#rendez-vous"
+           class="w-1/2 flex items-center justify-center gap-2 text-[12px] font-semibold bg-black text-white hover:bg-[#1a1a1a] tracking-widest uppercase">
+            <i class="fas fa-car text-[11px]"></i> Essayer
+        </a>
+    </div>
+
+
+    <!-- Script de pré-sélection du modèle -->
+    <script>
+        function preselectModel(modelValue) {
+            const selectElement = document.getElementById('modele-select');
+            if(selectElement) {
+                selectElement.value = modelValue;
+                selectElement.classList.add('border-black', 'bg-gray-50');
+                setTimeout(() => {
+                    selectElement.classList.remove('border-black', 'bg-gray-50');
+                }, 1000);
+            }
+        }
+    </script>
+<div id="confirm-modal" style="display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; padding:16px;">
+        <div onclick="closeModal()" style="position:absolute; inset:0; background:rgba(0,0,0,0.8); backdrop-filter:blur(4px);"></div>
+        <div style="position:relative; z-index:10; background:#fff; width:100%; max-width:440px; padding:48px 32px 40px; text-align:center; box-shadow:0 24px 60px rgba(0,0,0,0.3); animation: modalIn 0.5s ease-out forwards;">
+            <div style="width:64px;height:64px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 style="font-size:20px; font-weight:300; letter-spacing:0.15em; text-transform:uppercase; color:#000; margin-bottom:15px;">Demande reçue !</h3>
+            <p style="font-size:14px; font-weight:300; color:#666; line-height:1.6; margin-bottom:30px;">
+                Merci d'avoir réservé un essai auprès de <strong style="color:#000;font-weight:500;">Genesis Lille</strong>.<br><br>
+
+                Nos équipes vous recontacteront dans les prochains jours par mail ou téléphone afin de vous proposer une date, sous réserve de disponibilité du véhicule choisi.
+            </p>
+            <button onclick="closeModal()" style="width:100%; background:#000; color:#fff; border:none; padding:16px; font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer;">
+                Fermer
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour envoyer le formulaire et ouvrir la modale
+        function submitForm(e) {
+            e.preventDefault();
+            document.getElementById('confirm-modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Bloque le scroll
+            document.getElementById('leadForm').reset(); // Vide le formulaire
+        }
+
+        // Fonction pour fermer la modale
+        function closeModal() {
+            document.getElementById('confirm-modal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Libère le scroll
+        }
+    </script>
+
+    <style>
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body>
+</html>
